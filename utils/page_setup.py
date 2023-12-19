@@ -5,7 +5,12 @@ import pandas as pd
 
 def click_button(category):
     st.session_state.category = category
-
+    if (st.session_state.category != False) & (st.session_state.current_page not in ('select item')):
+        switch_page('select item')
+    elif (st.session_state.category != False) & (st.session_state.current_page =='item'):
+        st.write(st.session_state.current_page)
+        switch_page('select item')
+        
 def custom_sidebar():
     categories = pd.DataFrame({'category': ['Laptop', 'outdoor', 'food', 'books']
                               ,'url': ["https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=700"
@@ -17,11 +22,6 @@ def custom_sidebar():
     
     with st.sidebar: 
         home_button = st.button('Home')
-
-        # Category buttons
-        # for x in categories:
-        #     st.button(x, key=f'sb_{x}', on_click=click_button, args=[x])
-        # products = ['Laptop','food','books', 'outdoor']
 
         clicked = clickable_images(list(categories['url']),
             titles=[categories['category'][i] for i in range(len(categories))],
@@ -49,20 +49,13 @@ def no_side_pages():
     """
     st.markdown(no_sidebar_style, unsafe_allow_html=True)
 
-# def reset_state():
-#     st.session_state.setdefault
 
 def setup_page(current_page):
     no_side_pages()
     custom_sidebar()
-    
+    st.session_state.current_page = current_page
     if 'category' not in st.session_state:
-        # st.write('hello no cate')
         st.session_state.category = False
-        
-    elif (st.session_state.category != False) & (current_page != 'select item'):
-        # st.session_state.category = 'Laptop'
-        switch_page('select item')
-    
-    elif current_page == 'item':
-        switch_page('item')
+       
+    # if (st.session_state.category != False) & (current_page not in ('select item', 'item')):
+    #     switch_page('select item')

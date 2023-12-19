@@ -22,11 +22,12 @@ from streamlit_extras.switch_page_button import switch_page
 
 import utils.page_setup as page_setup
 
+
+
 page_setup.setup_page('select item')
 
-
-
 cat = st.session_state.category
+
 
 
 st.write(f'# Pick one item in *{st.session_state.category}*:')

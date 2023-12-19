@@ -21,6 +21,7 @@ from streamlit.hello.utils import show_code
 import utils.page_setup as page_setup
 
 page_setup.setup_page('item')
+st.session_state.category = False
 
 item = st.session_state.item
 
