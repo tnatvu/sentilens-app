@@ -1,0 +1,7 @@
+div[data-testid='column'] {
+    text-align: center
+}
+
+[data-testid="stVerticalBlock"] {
+    text-align: center;
+}
