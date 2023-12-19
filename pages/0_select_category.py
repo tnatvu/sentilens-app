@@ -14,16 +14,13 @@
 
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page 
-import utils.custom_sidebar as custom_sidebar
-custom_sidebar.custom_sidebar()
+import utils.page_setup as page_setup
 
-def click_button(cat):
-    st.session_state.category_clicked = True
-    st.session_state.category = cat
+page_setup.setup_page('select category')
 
-if 'category_clicked' not in st.session_state:
-    st.session_state.select_category = False
-    st.session_state.category_clicked = False
+def click_button(category):
+    st.session_state.category = category
+
 
 
 st.markdown('''# Select your product's category:''')
@@ -32,22 +29,7 @@ categories = ['Laptop', 'outdoor', 'books', 'food']
 
 for x in categories:
     st.button(x, on_click=click_button, args=[x])
-# st.button('Food', on_click=click_button, args=['Food'])
 
-if st.session_state.category_clicked:
-    switch_page('category')
-    st.write('test')
-
-
-# cat = st.session_state.category
-# st.write(f'# Pick one item in *{st.session_state.category}*:')
-# # Load all products from this category
-# items = {'laptop':['laptop 1', 'laptop 2'],
-#          'food': ['food 1', 'food 2']}
-
-# option = st.selectbox(
-#     'Pick a product',
-#     items[cat])
-
-# st.write('You selected:', option)
+if st.session_state.category:
+    switch_page('select item')
 
