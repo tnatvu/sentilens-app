@@ -16,6 +16,7 @@ import streamlit as st
 from streamlit_extras.switch_page_button import switch_page 
 import utils.custom_sidebar as custom_sidebar
 custom_sidebar.custom_sidebar()
+
 def click_button(cat):
     st.session_state.category_clicked = True
     st.session_state.category = cat
