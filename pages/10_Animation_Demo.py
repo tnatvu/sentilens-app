@@ -18,7 +18,7 @@ import numpy as np
 
 import streamlit as st
 from streamlit.hello.utils import show_code
-
+import utils.custom_sidebar as custom_sidebar
 
 def animation_demo() -> None:
 

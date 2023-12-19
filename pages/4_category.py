@@ -18,13 +18,21 @@ import numpy as np
 
 import streamlit as st
 from streamlit.hello.utils import show_code
+import utils.custom_sidebar as custom_sidebar
 
+custom_sidebar.custom_sidebar()
 
-st.session_state.clicked = False
+st.session_state.select_category = False
+st.session_state.category_clicked = False
+
+if 'category' not in st.session_state:
+    st.session_state.category = 'Laptop' # Default
+
 cat = st.session_state.category
+
 st.write(f'# Pick one item in *{st.session_state.category}*:')
 # Load all products from this category
-items = {'laptop':['laptop 1', 'laptop 2'],
+items = {'Laptop':['laptop 1', 'laptop 2'],
          'food': ['food 1', 'food 2']}
 
 option = st.selectbox(

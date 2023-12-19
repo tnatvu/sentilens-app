@@ -1,22 +1,19 @@
 import streamlit as st
 import streamlit_extras
 from streamlit_extras.switch_page_button import switch_page 
+import utils.custom_sidebar as custom_sidebar
 
+if 'select_category' not in st.session_state:
+    st.session_state.select_category = False
 
-if 'clicked' not in st.session_state:
-    st.session_state.clicked = False
+def click_button():
+    st.session_state.select_category = True
 
-def click_button(cat):
-    st.session_state.clicked = True
-    st.session_state.category = cat
+st.markdown('''# Welcome to SentiLens''')
 
-st.markdown('# Select product categories:')
+st.button('Find your product\'s reviews', on_click=click_button)
 
-categories = ['laptop', 'outdoor', 'books', 'food']
+if st.session_state.select_category:
+    switch_page('select category')
 
-for x in categories:
-    st.button(x, on_click=click_button, args=[x])
-# st.button('Food', on_click=click_button, args=['Food'])
-
-if st.session_state.clicked:
-    switch_page('category')
+custom_sidebar.custom_sidebar()
