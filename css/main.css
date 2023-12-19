@@ -5,3 +5,9 @@ div[data-testid='column'] {
 [data-testid="stVerticalBlock"] {
     text-align: center;
 }
+
+button {
+    padding: 0 2em !important;
+    min-width: 40px !important;
+    
+}

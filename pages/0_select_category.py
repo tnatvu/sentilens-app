@@ -14,11 +14,12 @@ with open('css/main.css') as f:
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 st.markdown('''# Select your product's category:''')
+st.write('')
 
 categories = ['Laptop', 'outdoor', 'books', 'food', 'meat', 'sports', 'fashion', 'skincare']
 
-n_columns = 5
-col1, col2, col3 = st.columns([1,16,1])
+n_columns = 4
+col1, col2, col3 = st.columns([1,20,1])
 
 with col2:
     
