@@ -3,7 +3,7 @@ import streamlit_extras
 from streamlit_extras.switch_page_button import switch_page 
 import utils.page_setup as page_setup
 
-with st.container():
+with st.container(border=True):
 
     st.markdown('''# Welcome to SentiLens''')
 
