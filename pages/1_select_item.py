@@ -39,7 +39,6 @@ items = {'Laptop':['laptop 1', 'laptop 2'],
 option = st.selectbox(
     'Pick a product',
     ['Select an item']+items[cat],
-    # on_change=item_selected,
     )
 
 if option != 'Select an item':

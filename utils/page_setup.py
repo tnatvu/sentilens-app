@@ -36,7 +36,6 @@ def custom_sidebar():
             click_button(categories['category'][clicked])
     
     if home_button:
-        # st.session_state.find_product_reviews = False
         st.session_state.category = False
         switch_page('Hello')
 
@@ -57,5 +56,3 @@ def setup_page(current_page):
     if 'category' not in st.session_state:
         st.session_state.category = False
        
-    # if (st.session_state.category != False) & (current_page not in ('select item', 'item')):
-    #     switch_page('select item')
